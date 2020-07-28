@@ -1,0 +1,25 @@
+.b-toast {
+  width: 300px;
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  padding: 10px;
+
+  color: white;
+
+  &__title {
+    font-size: 20px;
+  }
+
+  &__text {
+    font-size: 15px;
+  }
+
+  &._success {
+    background-color: green;
+  }
+
+  &._error {
+    background-color: red;
+  }
+}
