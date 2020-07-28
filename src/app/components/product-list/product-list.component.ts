@@ -3,12 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import {ProductDefinition} from '@app/shared/interfaces';
 import {ApiService} from '@app/services';
 import {ResDefinition} from '@app/shared/interfaces/product/res';
-
-// interface ResDefinition {
-//   code: number;
-//   message: string;
-//   content: any[];
-// }
+import { ToastsService } from '@app/services/toasts/toasts.service';
 
 @Component({
   selector: 'app-product-list',
@@ -24,22 +19,43 @@ export class ProductListComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private apiService: ApiService,
-  ) { }
+    public toastsService: ToastsService
+  ) {}
 
   ngOnInit(): void {
     console.log('Компонет Каталог создался');
-    this.apiService.getAllProducts().subscribe((res: ResDefinition) => {
+    if (this.apiService.getAllProducts().subscribe((res: ResDefinition) => {
       console.log(res)
-      this.myProducts = res.content;
-    })
-  }
+      this.myProducts = res.content;})
+    ){
+      setTimeout(() => {
+        const toastInfo = {
+          title: 'Добро пожаловать!',
+          text: 'Рады приветствовать Вас на нашем сайте',
+          type: 'success'
+        };
 
-  ngOnDestroy() {
+        this.toastsService.isToastMessageVisible.next(toastInfo);
+      }, 2000)
+    }  else
+    {
+      setTimeout(() => {
+        const toastInfo = {
+          title: 'Ошибка',
+          text: 'Проблема на серевере',
+          type: 'error'
+        };
+
+        this.toastsService.isToastMessageVisible.next(toastInfo);
+      }, 3000)
+    }
+  };
+
+  ngOnDestroy(){
     console.log('Верстка Каталог подъехала');
-  }
+  };
 
-  ngAfterViewInit() {
+  ngAfterViewInit(){
     console.log('Компонет Каталог  удалился');
-  }
-
+  };
 }

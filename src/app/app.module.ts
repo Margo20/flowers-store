@@ -14,6 +14,7 @@ import { ProductListComponent } from '@app/components/product-list/product-list.
 import { ProductDetailsComponent } from '@app/components/product-details/product-details.component';
 import { FormComponent } from '@app/components/form/form.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { ToastsComponent } from './components/toasts/toasts.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     ProductListComponent,
     ProductDetailsComponent,
     FormComponent,
+    ToastsComponent,
   ],
   imports: [
     BrowserModule,

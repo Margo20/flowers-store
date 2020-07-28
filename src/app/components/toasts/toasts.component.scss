@@ -1,0 +1,29 @@
+.b-toast {
+  width: 500px;
+  height: 150px;
+  position: fixed;
+  top: 150px;
+  right: 150px;
+  padding: 20px 15px;
+
+  color: white;
+
+  &__title {
+    margin: 0;
+    font-size: 25px;
+  }
+
+  &__text {
+    margin: 10px 0 0 0;
+    font-size: 20px;
+  }
+
+  &._success {
+    background-image: url("~assets/h1-parallax-img-1.jpg");
+    background-size: cover;
+  }
+
+  &._error {
+    background-color: red;
+  }
+}

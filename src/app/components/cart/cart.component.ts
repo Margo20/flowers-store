@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, Injectable, OnDestroy, OnInit} from '@angular/core';
 import {CartService} from '@app/services/cart/cart.service';
 import { FormBuilder } from '@angular/forms';
+import {ToastsService} from "@app/services/toasts/toasts.service";
 
 @Component({
   selector: 'app-cart',
@@ -13,6 +14,7 @@ export class CartComponent implements OnInit, OnDestroy, AfterViewInit {
   checkoutForm;
 
   constructor(
+    public toastsService: ToastsService,
     private cartService: CartService,
     private formBuilder: FormBuilder,
   ) {
@@ -24,7 +26,15 @@ export class CartComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   onSubmit(customerData) {
+    setTimeout(() => {
+      const toastInfo = {
+        title: 'Готово!',
+        text: 'Ваш заказ был отправлен',
+        type: 'success'
+      };
 
+      this.toastsService.isToastMessageVisible.next(toastInfo);
+    }, 2000)
     console.warn('Ваш заказ был отправлен', customerData);
 
     this.items = this.cartService.clearCart();
