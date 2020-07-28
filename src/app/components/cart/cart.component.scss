@@ -1,19 +1,19 @@
 @import 'src/scss/abstracts/mixins';
 
 @include tablet() {
-  .l-products >.l-products__item{
+  .l-cart >.l-cart__item{
     width: 50%;
   }
-  .l-products li:nth-child(n+2){
+  .l-cart li:nth-child(n+2){
     margin-top: 30px;
   }
 }
 
 @include mobile() {
-  .l-products > .l-products__item {
+  .l-cart > .l-cart__item {
     width: 100%;
   }
-  .l-products li:nth-child(n+1) {
+  .l-cart li:nth-child(n+1) {
     margin-top: 30px;
   }
 }
@@ -24,6 +24,40 @@
   font-size: 17px;
   background-image: url("~assets/h1-img-2.png");
   background-size: contain;
+}
+ img {
+   width: 150px;
+   height: 150px;
+ }
+
+.l-cart {
+  font-size: 0;
+  margin: 0 -15px;
+  &__item {
+    flex-basis: 25%;
+    padding: 5px 15px;
+  }
+  &__item-name {
+    font-size: 15px;
+    color: green;
+    padding-top: 25px;
+  }
+  &__item-icon {
+    padding: 5px;
+  }
+  &__item-price {
+    font-size: 20px;
+  }
+}
+
+.l-cart >.l-cart__item {
+  display: inline-block;
+  width: 25%;
+  padding: 0 15px;
+}
+
+li {
+  list-style: none;
 }
 
 a{

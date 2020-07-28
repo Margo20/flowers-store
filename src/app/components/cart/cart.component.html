@@ -1,12 +1,15 @@
-<div class = "container">
+<ul class = "container">
 
 <p>
   <a routerLink="/shipping">Ваш заказ</a>
 </p>
-<div class="cart-item" *ngFor="let item of items">
-  <span>{{ item.name }} </span>
-  <span>{{ item.price | currency }}</span>
-</div>
+  <ul classs="l-cart">
+    <li class="l-cart__item" *ngFor="let item of items">
+  <span class="l-cart__item-name">{{ item.name }} </span>
+  <span class="l-cart__price">{{ item.price | currency }}</span>
+  <img class="l-cart__icon" src="{{item.img}}">
+    </li>
+</ul>
 
 <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
   <div>
