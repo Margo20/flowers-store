@@ -13,12 +13,7 @@ export class ContactsComponent implements OnInit, OnDestroy, AfterViewInit {
     console.log('Компонет Контакты создался');
   }
 
-  ngOnDestroy() {
-    console.log('Верстка Контакты подъехала');
-  }
+  ngOnDestroy() {}
 
-  ngAfterViewInit() {
-    console.log('Компонет Контакты  удалился');
-  }
-
+  ngAfterViewInit() {}
 }

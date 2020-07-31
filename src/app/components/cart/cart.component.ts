@@ -46,15 +46,11 @@ export class CartComponent implements OnInit, OnDestroy, AfterViewInit {
         alert('Поля не должны быть пустыми');
       } else if (loginValue && loginValue.length < 7) {
         alert('Номер не должен быть меньше 7 символов');
-      }
-    });
+     }
+   });
   }
 
-  ngOnDestroy() {
-    console.log('Верстка Корзина подъехала');
-  }
+  ngOnDestroy() {}
 
-  ngAfterViewInit() {
-    console.log('Компонет Корзина  удалился');
-  }
+  ngAfterViewInit() {}
 }

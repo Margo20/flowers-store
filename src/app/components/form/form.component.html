@@ -16,8 +16,10 @@
         placeholder="Ваш телефон"
         matInput
       >
+      <mat-error *ngIf="signInForm.controls.telephone.hasError('required')">
+        Поле не должно быть пустым
+      </mat-error>
     </mat-form-field>
-    <p>Поле не должно быть пустым</p>
 
     <mat-form-field class="f-default__row">
       <mat-label>Login</mat-label>
@@ -28,8 +30,13 @@
         placeholder="Ваш login"
         matInput
       >
+      <mat-error *ngIf="signInForm.controls.login.hasError('required')">
+        Поле не должно быть пустым
+      </mat-error>
+      <mat-error *ngIf="signInForm.controls.login.hasError('pattern')">
+        Ошибка по регулярному выражению
+      </mat-error>
     </mat-form-field>
-    <p>Поле не должно быть пустым</p>
 
     <mat-form-field class="f-default__row">
       <mat-label>email</mat-label>
@@ -40,8 +47,13 @@
         placeholder="Ваш email"
         matInput
       >
+      <mat-error *ngIf="signInForm.controls.email.hasError('required') && signInForm.controls.email.dirty">
+        Поле не должно быть пустым
+      </mat-error>
+      <mat-error *ngIf="signInForm.controls.email.hasError('email') && signInForm.controls.email.dirty">
+        Неправильный формат электронной почты
+      </mat-error>
     </mat-form-field>
-    <p>Поле не должно быть пустым</p>
 
     <mat-form-field class="f-default__row">
       <mat-label>Рassword</mat-label>
@@ -52,8 +64,16 @@
         placeholder="Ваш пароль"
         matInput
       >
+      <mat-error *ngIf="signInForm.controls.pass.hasError('required') && signInForm.controls.pass.dirty">
+        Поле не должно быть пустым
+      </mat-error>
+      <mat-error *ngIf="signInForm.controls.pass.hasError('minlength')">
+        Минимум 5 символов!
+      </mat-error>
+      <mat-error *ngIf="signInForm.controls.pass.hasError('maxlength')">
+        Максимум 13 символов!
+      </mat-error>
     </mat-form-field>
-    <p>Поле не должно быть пустым</p>
 
     <div class="f-default__actions">
       <button
@@ -61,6 +81,7 @@
         class="f-default__btn"
         mat-raised-button
         color="primary"
+        [disabled]="!this.signInForm.valid"
       >
         Зарегистрироваться
       </button>

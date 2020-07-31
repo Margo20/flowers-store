@@ -13,12 +13,7 @@ export class PaymentComponent implements OnInit, OnDestroy, AfterViewInit {
     console.log('Компонет Оплата создался');
   }
 
-  ngOnDestroy() {
-    console.log('Верстка Оплата подъехала');
-  }
+  ngOnDestroy() {}
 
-  ngAfterViewInit() {
-    console.log('Компонет Оплата  удалился');
-  }
-
+  ngAfterViewInit() {}
 }
