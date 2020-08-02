@@ -1,6 +1,8 @@
 import {AfterViewInit, Component, Injectable, OnDestroy, OnInit} from '@angular/core';
 import {CartService} from '@app/services/cart/cart.service';
-import { FormBuilder } from '@angular/forms';
+import {  FormGroup, FormBuilder } from '@angular/forms';
+import { Validators} from "@angular/forms";
+let form = document.querySelector('.input');
 
 @Component({
   selector: 'app-cart',
@@ -11,6 +13,7 @@ import { FormBuilder } from '@angular/forms';
 export class CartComponent implements OnInit, OnDestroy, AfterViewInit {
   items;
   checkoutForm;
+  signInForm: FormGroup;
 
   constructor(
     private cartService: CartService,
@@ -32,14 +35,22 @@ export class CartComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit(): void {
-    console.log('Компонет Корзина создался');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      let nameValue = e.target.elements.name.value;
+      let loginValue = e.target.elements.login.value;
+      let addressValue = e.target.elements.address.value;
+
+      if (!nameValue || !loginValue) {
+        alert('Поля не должны быть пустыми');
+      } else if (loginValue && loginValue.length < 7) {
+        alert('Номер не должен быть меньше 7 символов');
+     }
+   });
   }
 
-  ngOnDestroy() {
-    console.log('Верстка Корзина подъехала');
-  }
+  ngOnDestroy() {}
 
-  ngAfterViewInit() {
-    console.log('Компонет Корзина  удалился');
-  }
+  ngAfterViewInit() {}
 }

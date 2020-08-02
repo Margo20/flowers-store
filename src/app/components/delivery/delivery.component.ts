@@ -13,12 +13,7 @@ export class DeliveryComponent implements OnInit, OnDestroy, AfterViewInit {
     console.log('Компонет Доставка создался');
   }
 
-  ngOnDestroy() {
-    console.log('Верстка Доставка подъехала');
-  }
+  ngOnDestroy() {}
 
-  ngAfterViewInit() {
-    console.log('Компонет Доставка  удалился');
-  }
-
+  ngAfterViewInit() {}
 }
