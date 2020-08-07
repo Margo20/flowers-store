@@ -3,17 +3,24 @@ import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { CartService } from '@app/services/cart/cart.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Validators} from "@angular/forms";
+import { User } from '@app/user'
+
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+  styleUrls: ['./cart.component.scss'],
+  providers: [CartService],
 })
 
 export class CartComponent implements OnInit, OnDestroy, AfterViewInit {
   items;
   checkoutForm: FormGroup;
   id: string;
+  user: User = new User() // данные вводимого пользователя
+
+  // receivedUser: User // полученный пользователь
+  done: boolean = false
 
   constructor(
     private cartService: CartService,
@@ -34,9 +41,23 @@ export class CartComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
-  
+  // submit(user: User) {
+  //   this.cartService.postData(user).subscribe(
+  //     (data: User) => {
+  //       this.receivedUser = data
+  //       this.done = true
+  //       console.warn('Ваш заказ был отправлен');
+  //       alert('Ваш заказ был отправлен');
+  //
+  //       this.items = this.cartService.clearCart();
+  //       this.checkoutForm.reset();
+  //     },
+  //     error => console.log(error)
+  //   )
+  // }
+// }
 
-  onSubmit(customerData) {
+ submit(customerData) {
 
     console.warn('Ваш заказ был отправлен', customerData);
     alert('Ваш заказ был отправлен');
@@ -44,6 +65,8 @@ export class CartComponent implements OnInit, OnDestroy, AfterViewInit {
     this.items = this.cartService.clearCart();
     this.checkoutForm.reset();
   }
+
+
 
   ngOnInit(): void {
     console.log('Компонет Корзина создался');
