@@ -1,3 +1,5 @@
+
+import {ToastsService} from "@app/services/toasts/toasts.service";
 import { UserService } from '@app/services/user/user.service';
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { CartService } from '@app/services/cart/cart.service';
@@ -16,6 +18,7 @@ export class CartComponent implements OnInit, OnDestroy, AfterViewInit {
   id: string;
 
   constructor(
+    public toastsService: ToastsService,
     private cartService: CartService,
     private formBuilder: FormBuilder,
     public userService: UserService
@@ -37,7 +40,15 @@ export class CartComponent implements OnInit, OnDestroy, AfterViewInit {
   
 
   onSubmit(customerData) {
+    setTimeout(() => {
+      const toastInfo = {
+        title: 'Готово!',
+        text: 'Ваш заказ был отправлен',
+        type: 'success'
+      };
 
+      this.toastsService.isToastMessageVisible.next(toastInfo);
+    }, 2000)
     console.warn('Ваш заказ был отправлен', customerData);
     alert('Ваш заказ был отправлен');
 
