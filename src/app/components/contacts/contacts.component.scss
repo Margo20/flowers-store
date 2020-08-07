@@ -1,58 +1,54 @@
 @import 'src/scss/abstracts/mixins';
 
-@include mobile() {
-  .l-products > .l-products__item {
-    width: 100%;
-  }
-  .l-products li:nth-child(n+1) {
-    margin-top: 30px;
-  }
-}
-
 .container {
-  padding: 50px 100px;
   margin: 0 auto;
-  font-size: 17px;
+  padding: 0 15px;
   background-image: url("~assets/h2-background-team.jpg");
   background-size: cover;
 }
 
-.description{
-  border: 1px solid;
-  padding: 25px;
-  font-size: 20px;
-  margin: 50px 300px;
-  background-color: blanchedalmond;
-  display: inline-block;
-  width: 870px;
+.l-products {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+  &__item {
+    flex-basis: 40%;
+    padding-top: 25px;
+    margin-left: 100px;
+  }
+  &__item-name {
+    font-size: 25px;
+    color: green;
+  }
+  &__item-p {
+    font-size: 20px;
+  }
 }
+
+.img {
+  max-width: 100%;
+}
+
 h1 {
   color: green;
-  padding: 25px;
+  font-size: 35px;
+  padding: 15px;
   margin: 0 auto;
-}
-h3{
-  color: green;
-  font-size: 20px;
 }
 
 p{
+  font-size: 20px;
   position: center;
-  margin-left: 100px;
-}
-ul{
-  position: center;
-  margin-left: 100px;
 }
 
 @include tablet() {
   .l-products {
     &__item {
       width: 50%;
+      margin: 0 auto;
     }}
-
-  .l-products li:nth-child(n+2){
-    margin-top: 30px;
+  img {
+    max-width: 100%;
   }
 }
 
@@ -60,9 +56,9 @@ ul{
   .l-products {
     &__item {
       width: 100%;
+      margin: 0 auto;
     }}
-
-  .l-products li:nth-child(n+1) {
-    margin-top: 30px;
+  img {
+    max-width: 100%;
   }
 }

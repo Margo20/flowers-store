@@ -15,6 +15,7 @@ import { ProductDetailsComponent } from '@app/components/product-details/product
 import { FormComponent } from '@app/components/form/form.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ToastsComponent } from './components/toasts/toasts.component';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -35,8 +36,8 @@ import { ToastsComponent } from './components/toasts/toasts.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    MatFormFieldModule,
-    RouterModule
+    MatInputModule,
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

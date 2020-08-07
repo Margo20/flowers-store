@@ -1,11 +1,42 @@
 @import 'src/scss/abstracts/mixins';
 
 .container{
-  padding: 50px 0;
   margin: 50px;
-  font-size: 17px;
   background-image: url("~assets/h1-img-2.png");
   background-size: contain;
+}
+ img {
+   width: 350px;
+   height: 350px;
+ }
+
+.l-cart {
+  font-size: 0;
+  margin: 0 -15px;
+  &__item {
+    flex-basis: 25%;
+    padding: 5px 15px;
+  }
+  &__item-name {
+    font-size: 15px;
+    color: green;
+  }
+  &__item-icon {
+    padding: 5px;
+  }
+  &__item-price {
+    font-size: 20px;
+  }
+}
+
+.l-cart >.l-cart__item {
+  display: inline-block;
+  width: 25%;
+  padding: 0 15px;
+}
+
+li {
+  list-style: none;
 }
 
 a{
@@ -48,17 +79,16 @@ form {
       margin-top: 20px;
     }
   }
-
-  &__actions {
-    margin-top: 20px;
-    text-align: right;
-  }
 }
 
 @include tablet() {
   .l-cart {
+    margin-left: 80px;
     &__item {
       width: 50%;
+      img {
+        max-width: 100%;
+      }
     }}
 
   .l-cart li:nth-child(n+2){
@@ -68,8 +98,14 @@ form {
 
 @include mobile() {
   .l-cart {
+    margin-left: 80px;
+    margin-right: 80px;
     &__item {
       width: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }}
 
   .l-cart li:nth-child(n+1) {

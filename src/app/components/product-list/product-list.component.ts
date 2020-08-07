@@ -58,4 +58,8 @@ export class ProductListComponent implements OnInit, OnDestroy, AfterViewInit {
   ngAfterViewInit(){
     console.log('Компонет Каталог  удалился');
   };
+
+  ngOnDestroy() {}
+
+  ngAfterViewInit() {}
 }

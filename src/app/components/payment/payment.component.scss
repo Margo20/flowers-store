@@ -3,34 +3,36 @@
 .container{
   padding: 50px;
   margin: 0 auto;
-  font-size: 17px;
   background-image: url("~assets/h2-background-img-1-600x600.jpg");
   background-size: contain;
 }
 
-h1 {
+.l-products {
+  margin-left: 20px;
+  &__item {
+    font-size: 19px;
+    line-height: 1.5;
+    padding-left: 30px;
+    display: block;
+  }
+}
+
+.h1 {
   color: green;
   padding-top: 40px;
-  margin-left: 100px;
+  font-size: 25px;
+  margin-left: 50px;
 }
-  p{
-    position: center;
-    margin-left: 100px;
-  }
-  ul{
-    position: center;
-    margin-left: 100px;
-  }
+.p{
+  font-size: 19px;
+  padding-top: 5px;
+}
 
 @include tablet() {
   .l-products {
     &__item {
       width: 50%;
     }}
-
-  .l-products li:nth-child(n+2){
-    margin-top: 30px;
-  }
 }
 
 @include mobile() {
@@ -38,8 +40,4 @@ h1 {
     &__item {
       width: 100%;
     }}
-
-  .l-products li:nth-child(n+1) {
-    margin-top: 30px;
-  }
 }

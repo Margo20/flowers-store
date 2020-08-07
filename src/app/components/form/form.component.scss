@@ -10,15 +10,16 @@
 }
 .f-default {
   max-width: 400px;
-  margin-left: 600px;
+  margin: auto;
   padding: 45px;
   border: 1px solid;
   background-image: url("~assets/h2-background-team-768x440.jpg");
   background-size: contain;
+  border-radius: 5px;
 
   &__row {
     width: 100%;
-    border: 1px solid olivedrab;
+    // border: 1px solid olivedrab;
 
     & + & {
       margin-top: 20px;
@@ -29,6 +30,7 @@
     margin-top: 20px;
     text-align: center;
     border: 1px solid olivedrab;
+    border-radius: 4px;
   }
 }
 

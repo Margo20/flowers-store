@@ -1,13 +1,17 @@
   <div class="container">
-  <ul>
-    <li *ngIf="myProducts">
-      <h2>{{ product.name }}</h2>
-      <h3>{{ product.price | currency }}</h3>
-      <h4>{{ product.description }}</h4>
-      <p>{{ product.text }}</p>
+  <ul class="l-products">
+    <li class="l-products__item">
+      <div class="img">
         <img src="{{product.img}}">
-
+      </div>
+    </li>
+    <li class="l-products__item" *ngIf="myProducts">
+      <h2 class="l-products__item-name">{{ product.name }}</h2>
+      <h3 class="l-products__item-price">{{ product.price | currency }}</h3>
+      <h4 class="l-products__item-description" >{{ product.description }}</h4>
+      <p class="l-products__item-text">{{ product.text }}</p>
       <button (click)="addToCart(product)" title="Buy">Купить</button>
     </li>
+
   </ul>
 </div>

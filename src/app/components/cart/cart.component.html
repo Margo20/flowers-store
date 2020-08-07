@@ -3,23 +3,68 @@
 <p>
   <a routerLink="/shipping">Ваш заказ</a>
 </p>
-<div class="cart-item" *ngFor="let item of items">
-  <span>{{ item.name }} </span>
-  <span>{{ item.price | currency }}</span>
-</div>
+  <ul classs="l-cart">
+    <li class="l-cart__item" *ngFor="let item of items">
+  <h3 class="l-cart__item-name">{{ item.name }} </h3>
+  <h4 class="l-cart__price">{{ item.price | currency }}</h4>
+  <img class="l-cart__icon" src="{{item.img}}">
+    </li>
+</ul>
 
-<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
-  <div>
+  <form action="#"
+        name="signin"
+        [formGroup]="checkoutForm"
+        (ngSubmit)="onSubmit(checkoutForm.value)">
+
     <label class="label">Заказчик</label>
-    <input class="input" type="text" formControlName="name" placeholder="Ваше имя">
-    <input class="input" type="text" formControlName="name" placeholder="Ваш телефон">
-  </div>
+    <mat-form-field class="f-default__row">
+      <mat-label>Имя</mat-label>
+      <input
+        type="text"
+        name="name"
+        formControlName="name"
+        placeholder="Ваше имя"
+        matInput
+      >
+      <mat-error *ngIf="checkoutForm.controls.name.hasError('required')">
+        Поле не должно быть пустым
+      </mat-error>
+    </mat-form-field>
 
-  <div>
+    <mat-form-field class="f-default__row">
+      <mat-label>Телефон</mat-label>
+      <input
+        type="text"
+        name="login"
+        formControlName="telephone"
+        placeholder="Ваш телефон"
+        matInput
+      >
+      <mat-error *ngIf="checkoutForm.controls.telephone.hasError('required')">
+        Поле не должно быть пустым
+      </mat-error>
+    </mat-form-field>
+
     <label class="label">Адрес доставки</label>
-    <input class="input" type="text" formControlName="address" placeholder="Ваш адрес">
-  </div>
+    <mat-form-field class="f-default__row">
+      <mat-label>Адрес доставки</mat-label>
+      <input
+        type="text"
+        name="address"
+        formControlName="address"
+        placeholder="Ваш адрес"
+        matInput
+      >
+      <mat-error *ngIf="checkoutForm.controls.address.hasError('required')">
+        Поле не должно быть пустым
+      </mat-error>
+    </mat-form-field>
 
-  <button class="button" type="submit">Покупка</button>
-
-</form>
+      <button class="button"
+              type="submit"
+              [disabled]="!this.checkoutForm.valid"
+      >
+        Покупка
+      </button>
+  </form>
+</div>

@@ -1,8 +1,5 @@
 <section>
   <header class="header">
-<!--    <img src="assets/logo-1.png" alt="img" class="img">-->
-<!--    <img itemprop="image" class="mkdf-light-logo" src="https://rosebud.qodeinteractive.com/wp-content/uploads/2018/03/logo-header.png" width="214" height="86" alt="light logo">-->
-
     <img src="https://rosebud.qodeinteractive.com/wp-content/uploads/2018/03/logo-header.png" alt="logo">
     <nav class="header__nav">
       <ul class="l-navigator">
@@ -10,13 +7,16 @@
         <li class="l-navigator__item"><a class="l-navigator__link" href="#" routerLink="payment">Оплата</a></li>
         <li class="l-navigator__item"><a class="l-navigator__link" href="#" routerLink="delivery">Доставка</a></li>
         <li class="l-navigator__item"><a class="l-navigator__link" href="#" routerLink="contacts">Контакты</a></li>
-        <li class="l-navigator__item"><a class="l-navigator__link" href="#" routerLink="cart">Корзина</a></li>
-        <li class="l-navigator__item"><a class="l-navigator__link" href="#" routerLink="form">Регистрация</a></li>
+        <li class="l-navigator__item"><a *ngIf="!(this.userService.user | async)" class="l-navigator__link" href="#" routerLink="cart">Корзина</a><a *ngIf="this.userService.user" class="l-navigator__link" href="#" routerLink="cart">{{userService.name}}</a></li>
+        <li class="l-navigator__item"><a *ngIf="!(this.userService.user | async)" class="l-navigator__link" href="#" routerLink="form">Вход</a></li>
+
       </ul>
     </nav>
-    <h1>{{takingOrders}}</h1><h1>{{myTelephone}} </h1>
+    <p>{{takingOrders}}</p>
+    <a href="tel:+375/29-999-99-99">{{myTelephone}} </a>
+    <p></p>
   </header>
-  </section>
+  <div class="b-faceImg"></div>
 <router-outlet></router-outlet>
 <app-toasts></app-toasts>
 
@@ -26,8 +26,8 @@
   <a href="#" routerLink="delivery">Доставка</a>
   <a href="#" routerLink="contacts">Контакты</a>
   <a href="#" routerLink="cart">Корзина</a>
-  <a href="#" routerLink="form">Регистрация</a>
-  <h1>FLOWER STORE</h1>
+  <a href="#" routerLink="form">Вход</a>
+  <h1>ROUSEBUD</h1>
 
   <p>Прием заказов</p>
   <ul>
