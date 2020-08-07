@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://.herokuapp.com/'
+  apiUrl: 'https://damp-fjord-79524.herokuapp.com/'
 };
